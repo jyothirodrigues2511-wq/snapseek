@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SnapSeek — turn any word into a wall of pictures. Search a topic and watch images flow into a responsive grid." />
+  <title>SnapSeek — every picture starts with a word</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="brand">
+      <svg class="brand-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 7.5h2.3L8 5.2h8l1.7 2.3H20a1.6 1.6 0 0 1 1.6 1.6v9.3A1.6 1.6 0 0 1 20 20H4a1.6 1.6 0 0 1-1.6-1.6V9.1A1.6 1.6 0 0 1 4 7.5z" />
+        <circle cx="12" cy="12.7" r="3.8" />
+        <path d="M7.6 9.4h.01" />
+      </svg>
+      <p class="brand-text">
+        <span class="brand-name">SnapSeek</span>
+        <span class="brand-tagline">Find the picture you're picturing</span>
+      </p>
+    </div>
+
+    <input type="checkbox" id="themeToggle" class="visually-hidden" />
+    <label for="themeToggle" class="theme-toggle" role="switch" aria-label="Toggle light and dark theme">Dark mode</label>
+  </header>
+
+  <main class="page">
+
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>Every picture starts with a&nbsp;word.</h1>
+        <p class="lede">
+          SnapSeek turns the thing in your head into a wall of pictures. Type any
+          topic, place, colour or feeling — then hit Search and the grid below fills up.
+        </p>
+
+        <form class="search-form" id="searchForm" role="search">
+          <label class="search-label" for="searchInput">What should we find for you?</label>
+
+          <div class="search-bar">
+            <input
+              id="searchInput"
+              name="q"
+              type="search"
+              placeholder="Try “misty mountains”, “neon nights”, “old trains”…"
+              autocomplete="off"
+            />
+            <button id="searchButton" type="submit">Search</button>
+          </div>
+
+          <button id="clearButton" type="reset" class="clear-button">Clear the search box</button>
+        </form>
+
+        <div class="chips" role="group" aria-label="Quick topic picks">
+          <span class="chips-label">Quick picks</span>
+          <button id="chipNature" type="button" class="chip" data-query="nature">Nature</button>
+          <button id="chipCities" type="button" class="chip" data-query="cities">Cities</button>
+          <button id="chipAnimals" type="button" class="chip" data-query="animals">Animals</button>
+          <button id="chipSpace" type="button" class="chip" data-query="space">Space</button>
+          <button id="chipFood" type="button" class="chip" data-query="food">Food</button>
+        </div>
+      </div>
+
+      <div class="hero-scene" aria-hidden="true">
+        <div class="scene-tile t1"></div>
+        <div class="scene-tile t2"></div>
+        <div class="scene-tile t3"></div>
+        <div class="scene-tile t4"></div>
+        <div class="scene-tile t5"></div>
+        <p class="scene-caption">Your results will live in here.</p>
+      </div>
+    </section>
+
+    <section class="results" aria-labelledby="resultsHeading">
+      <div class="results-head">
+        <h2 id="resultsHeading">Your wall</h2>
+        <p id="resultCount" class="result-count">Showing <span id="resultCountValue">0</span> results<span id="resultCountQuery"></span></p>
+      </div>
+
+      <div class="results-zone">
+        <ul id="resultsGrid" class="results-grid" aria-live="polite" aria-label="Search results grid"></ul>
+        <p id="emptyState" class="empty-state">
+          <span class="empty-state-kicker">The wall is waiting</span>
+          Search for a topic above and a grid of images will appear right here —
+          laid out to fit anything from a phone to a widescreen.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>SnapSeek · Part 2 — search is live. Feed it a word and watch the wall fill.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
